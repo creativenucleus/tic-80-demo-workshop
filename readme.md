@@ -23,11 +23,17 @@ For variety/technical inspiration, I'd select:
 
 Also see [Tiny Code Christmas](https://tcc.lovebyte.party/) for a brilliant set of short tutorials in TIC-80 and another fantasy console, [PICO-8](https://www.lexaloffle.com/pico-8.php).
 
+[The Sizecoding wiki](http://www.sizecoding.org/wiki/TIC-80) collects together some techniques.
+
 ### Livecoding
 
 Some selected examples in [Demozoo's Livecoding section](https://livecode.demozoo.org/)
 
 Look out for regular Byte Jams (see Field-FX in the community links below) and the competition version (timed/restricted length) Byte Battles in demo parties.
+
+### Other
+
+PS Enough made a [general demoscene getting started doc](https://github.com/psenough/teach_yourself_demoscene_in_14_days). When you're a bit more embedded, they produce [monthly reports](https://www.youtube.com/@psenough) on the demoscene, featuring releases and demoparties.
 
 ### Communities
 
