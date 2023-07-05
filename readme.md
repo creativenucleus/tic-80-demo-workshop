@@ -39,10 +39,10 @@ There are many demoscene communities. I've found myself following a number of Di
     They also run Byte Jams (hour long streams on [Twitch](https://www.twitch.tv/fieldfxdemo) on most Monday evenings) and they have a [YouTube](https://www.youtube.com/@field-fx5751) channel featuring previous streams.
 - [Lovebyte](https://lovebyte.party/)
     An annual online event for sizecoding, featuring many computer systems, from TIC-80 to obscure hardware from the 1980s
-    I highly, highly recommend their [Tiny Code Christmas](https://tcc.lovebyte.party/) a series of gentle, but nicely progressive series of tutorials. These are oriented towards sizecoding, but also helpful for general demo tips. This was my entrypoint, and I've loved where it's gone. They also have a Discord[https://discord.gg/pUS5kCJTzp] - also a very supportive community.
+    I highly, highly recommend their [Tiny Code Christmas](https://tcc.lovebyte.party/) a series of gentle, but nicely progressive series of tutorials. These are oriented towards sizecoding, but also helpful for general demo tips. This was my entrypoint, and I've loved where it's gone. They also have a [Discord](https://discord.gg/pUS5kCJTzp) - also a very supportive community.
 - [NOVA Demoparty](https://novaparty.org/)
     The UK's biggest in-person demoparty, down on the Devon coast, annually in June. Also very welcoming!
-    [Discord](https://discord.gg/rBJTXJBeq2)
+    They don't use their Twitter/Mastodon accounts currently, but do have a [Discord](https://discord.gg/rBJTXJBeq2).
 
 ### Longer Demos
 
