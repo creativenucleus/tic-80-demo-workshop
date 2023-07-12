@@ -1,5 +1,0 @@
-*.exe
-!build/*.exe
-
-lua-tests/output/*
-!lua-tests/output
