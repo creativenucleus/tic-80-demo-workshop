@@ -6,6 +6,10 @@
 
 ## Links
 
+### Documentation
+
+The TIC-80 website has a [Learn page] featuring an outline of all commands. For further detail, see the [wiki](https://github-wiki-see.page/m/nesbox/TIC-80/wiki), which is regularly updated.
+
 ### Sizecoding
 
 If you're interested in making big effects in the smallest space:
@@ -23,11 +27,23 @@ For variety/technical inspiration, I'd select:
 
 Also see [Tiny Code Christmas](https://tcc.lovebyte.party/) for a brilliant set of short tutorials in TIC-80 and another fantasy console, [PICO-8](https://www.lexaloffle.com/pico-8.php).
 
+[The Sizecoding wiki](http://www.sizecoding.org/wiki/TIC-80) collects together some techniques.
+
 ### Livecoding
 
 Some selected examples in [Demozoo's Livecoding section](https://livecode.demozoo.org/)
 
 Look out for regular Byte Jams (see Field-FX in the community links below) and the competition version (timed/restricted length) Byte Battles in demo parties.
+
+### Other
+
+PSEnough made a [general demoscene getting started doc](https://github.com/psenough/teach_yourself_demoscene_in_14_days). When you're a bit more embedded, they produce [monthly reports](https://www.youtube.com/@psenough) on the demoscene, featuring releases and demoparties.
+
+### Sound
+
+The workshop covered some starting points for visual effects. For sound, see the `music` and `sfx` calls [Under 'sound' in the API](https://github.com/nesbox/TIC-80/wiki/API#sound). There is documenation for the [SFX Editor](https://github.com/nesbox/TIC-80/wiki/SFX-Editor). The Music Editor (Tracker) generally doesn't have a great reputation, but some do get some brilliant things out of it. [PSEnough's Music editor intro tutorial](https://www.youtube.com/watch?v=V9oAccwjeDA) is recommended, and there's an explanation and good guide to the effects modifiers in the [Music Editor documentation](https://github.com/nesbox/TIC-80/wiki/Music-Editor).
+
+If you'd like to go low-level, and poke/peek stuff, check out the [Sound register documentation](https://github.com/nesbox/TIC-80/wiki/RAM#sound-registers). [The code in this cart](https://tic80.com/play?cart=807) may help you pick it apart. This [music visualiser](https://tic80.com/play?cart=115) may also illuminate.
 
 ### Communities
 
