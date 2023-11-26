@@ -8,7 +8,7 @@
 
 ### Documentation
 
-The TIC-80 website has a [Learn page] featuring an outline of all commands. For further detail, see the [wiki](https://github-wiki-see.page/m/nesbox/TIC-80/wiki), which is regularly updated.
+The TIC-80 website has a [Learn page](https://tic80.com/learn) featuring an outline of all commands. For further detail, see the [wiki](https://github-wiki-see.page/m/nesbox/TIC-80/wiki), which is regularly updated.
 
 ### Sizecoding
 
