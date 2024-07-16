@@ -86,28 +86,28 @@ end
 
 ## Watchparty
 
-- [https://demozoo.org/productions/130155/](Intrinsic Gravity / ^Still)
+- [Intrinsic Gravity / ^Still](https://demozoo.org/productions/130155/)
 	Geometric, colour play.
-- [https://demozoo.org/productions/2/](State of the Art / ^Spaceballs)
+- [State of the Art / ^Spaceballs](https://demozoo.org/productions/2/)
 	- 1992 Amiga. Photosensitivity warning.
-- [https://demozoo.org/productions/202831/](Eon / ^The Black Lotus)
-- [https://demozoo.org/productions/277304/](VX2 / ^Spectrals)
-- [https://demozoo.org/productions/67521/](ix / ^Moppi)
-- [https://demozoo.org/productions/342211/](Remnants / ^Alcatraz)
+- [Eon / ^The Black Lotus](https://demozoo.org/productions/202831/)
+- [VX2 / ^Spectrals](https://demozoo.org/productions/277304/)
+- [ix / ^Moppi](https://demozoo.org/productions/67521/)
+- [Remnants / ^Alcatraz](https://demozoo.org/productions/342211/)
 	- 256b
-- [https://demozoo.org/productions/342223/](GhostNOP / ^Futurs' and ^Pulpo Corrosivo)
+- [GhostNOP / ^Futurs' and ^Pulpo Corrosivo](https://demozoo.org/productions/342223/)
 	- Amstrad CPC
-- [https://demozoo.org/productions/342435/](Empires / ^Conspiracy)
+- [Empires / ^Conspiracy](https://demozoo.org/productions/342435/)
 	- Bokeh / fluid / FOV.
-- [https://demozoo.org/productions/327586/](Legend of Sisyphus / ^ASD)
+- [Legend of Sisyphus / ^ASD](https://demozoo.org/productions/327586/)
 	- Mocap. Nudity.
-- [https://demozoo.org/productions/316180/](Batman Rises / ^Batman Group)
+- [Batman Rises / ^Batman Group](https://demozoo.org/productions/316180/)
 	- Amiga OCS
-- [https://demozoo.org/productions/322662/](Mechasm / ^Fairlight)
-- [https://demozoo.org/productions/322396/](In Color / ^Darklite and ^Offence)
+- [Mechasm / ^Fairlight](https://demozoo.org/productions/322662/)
+- [In Color / ^Darklite and ^Offence](https://demozoo.org/productions/322396/)
 	- Spectrum 128k
-- [https://demozoo.org/productions/325859/](Replay / ^SMFX)
+- [Replay / ^SMFX](https://demozoo.org/productions/325859/)
 	 - Atari ST
-- [https://demozoo.org/productions/322661/](The Interloper / ^MFX)
-- [https://demozoo.org/productions/4910/](Masagin / ^Farbrausch and ^Neuro)
-- [https://demozoo.org/productions/313312/](Come Together / ^Melon Dezign)
+- [The Interloper / ^MFX](https://demozoo.org/productions/322661/)
+- [Masagin / ^Farbrausch and ^Neuro](https://demozoo.org/productions/4910/)
+- (Come Together / ^Melon Dezign](https://demozoo.org/productions/313312/]
