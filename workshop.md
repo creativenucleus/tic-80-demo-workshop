@@ -1,4 +1,6 @@
-# Intro
+# Workshop Schedule
+
+## Intro
 
 - Make sure everyone has a running version of TIC-80 (part way down [tic-80 Create page](https://tic80.com/create))
 - Anyone susceptible to photosensitity
@@ -14,7 +16,9 @@
 - Level of programming experience (above 7 / below 3)
 - Anyone know about the demoscene?
 
-## Primitives and structures
+## Learning Stuff
+
+### Primitives and structures
 
 `cls, rect, tri, circ, line, elli, pix, print`
 (rectb, trib, circb, ellib)
@@ -56,7 +60,7 @@ function drawPicket(x)
 end
 ```
 
-## Sin/Cos
+### Sin/Cos
 
 ```lua
 local ATAN2=math.atan2
@@ -67,18 +71,20 @@ local SIN=math.sin
 function TIC()
 	T=time()
 
- for y=0,135 do
-	 for x=0,239 do
-		 local p=y*240+x
+ 	for y=0,135 do
+		for x=0,239 do
+			local p=y*240+x
 			local dx=120-x
 			local dy=68-y
 			local d=(dx^2+dy^2)^.5
 			local a=(ATAN2(dy,dx)+PI)/TAU
 			poke4(p,a*16+T*.001)
-	 end
- end
+		 end
+ 	end
 end
 ```
+
+## Watchparty
 
 - (https://demozoo.org/productions/130155/)[Intrinsic Gravity / ^Still]
 	Geometric, colour play.
