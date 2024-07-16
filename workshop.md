@@ -8,10 +8,13 @@
         - sin/cos
         - poke palette
         - full screen effect
-    - Some examples of demoscene things
+	- History of the demoscene
+    - Showcasing some demoscene things
     - Jumping off points
+- Level of programming experience (above 7 / below 3)
+- Anyone know about the demoscene?
 
-## Primitives and structurs
+## Primitives and structures
 
 `cls, rect, tri, circ, line, elli, pix, print`
 (rectb, trib, circb, ellib)
@@ -77,11 +80,28 @@ function TIC()
 end
 ```
 
-- (https://demozoo.org/productions/4690/)[D-Four]
-- (https://demozoo.org/productions/130155/)[Intrinsic Gravity]
-- (https://demozoo.org/productions/205735/)[Motus]
-- Spaceballs - 9 Fingers
-- The Black Lotus - Eon
-- Spectrals VX2
-- Moppi ix
-- Moppi Gerbera
+- (https://demozoo.org/productions/130155/)[Intrinsic Gravity / ^Still]
+	Geometric, colour play.
+- (https://demozoo.org/productions/2/)[State of the Art / ^Spaceballs)
+	- 1992 Amiga. Photosensitivity warning.
+- (https://demozoo.org/productions/202831/)[Eon / ^The Black Lotus]
+- (https://demozoo.org/productions/277304/)[VX2 / ^Spectrals]
+- (https://demozoo.org/productions/67521/)[ix / ^Moppi]
+- (https://demozoo.org/productions/342211/)[Remnants / ^Alcatraz]
+	- 256b
+- (https://demozoo.org/productions/342223/)[GhostNOP / ^Futurs' and ^Pulpo Corrosivo]
+	- Amstrad CPC
+- (https://demozoo.org/productions/342435/)[Empires / ^Conspiracy]
+	- Bokeh / fluid / FOV.
+- (https://demozoo.org/productions/327586/)[Legend of Sisyphus / ^ASD]
+	- Mocap. Nudity.
+- (https://demozoo.org/productions/316180/)[Batman Rises / ^Batman Group]
+	- Amiga OCS
+- (https://demozoo.org/productions/322662/)[Mechasm / ^Fairlight]
+- (https://demozoo.org/productions/322396/)[In Color / ^Darklite and ^Offence]
+	- Spectrum 128k
+- (https://demozoo.org/productions/325859/)[Replay / ^SMFX]
+	 - Atari ST
+- (https://demozoo.org/productions/322661/)[The Interloper / ^MFX]
+- (https://demozoo.org/productions/4910/)[Masagin / ^Farbrausch and ^Neuro]
+- (https://demozoo.org/productions/313312/)[Come Together / ^Melon Dezign]
