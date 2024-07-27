@@ -16,6 +16,17 @@
 - Level of programming experience (above 7 / below 3)
 - Anyone know about the demoscene?
 
+## Switch Dev mode on
+
+If Dev mode is off (the default), when you hit ESC, you're taken to a menu. When dev mode is off, it takes you back into the command line, or editor.
+
+- Run a program (Ctrl-R)
+- Hit ESC to break program
+- Select (options) in menu
+- Move up to 'Dev Mode' and switch it on.
+- Select Back
+- Press Esc
+
 ## Learning Stuff
 
 ### Primitives and structures
