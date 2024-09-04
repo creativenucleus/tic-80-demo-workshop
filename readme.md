@@ -1,5 +1,11 @@
 # TIC-80 Workshop
 
+Hi. Here are some resources for folks who attended my demoscene workshop.  
+
+Please get in touch if you'd like to [host me to run this workshop](./hosting/).
+
+There are also resources for [running this workshop](./running/) yourself.
+
 ## Download TIC-80
 
 [Download Page](https://tic80.com/create) - Skip past 'In the Browser' to the 'Download' heading.
@@ -63,6 +69,8 @@ There are many demoscene communities. I've found myself following a number of Di
 ### Longer Demos
 
 - [You Better Walk](https://www.youtube.com/watch?v=HxrIOyLwYXk)
+- [GRMA](https://www.youtube.com/watch?v=g136jyMHSUU)
+- [AssemblyTV Megademo](https://www.youtube.com/watch?v=KFpohQa8jgk)
 - [Life's a Beach](https://www.youtube.com/watch?v=8Kz3_fqToNI)
 - [Nullius in Verba](https://www.youtube.com/watch?v=fhqKE_sTXeg)
 - [The Welsh Demo](https://www.youtube.com/watch?v=DOI5iUfohY0)
@@ -75,6 +83,36 @@ There are many demoscene communities. I've found myself following a number of Di
 
 - [Demozoo](https://demozoo.org/) is a database of productions across the demoscene. They also have [Nanogems](https://nanogems.demozoo.org/) and [Livecode](https://livecode.demozoo.org/) archives.
 - [Pouët](https://www.pouet.net/) is a huge archive of productions and associated stuff. It can be a bit aggresive in places, but it's a great resource.
+
+# Examples of Demoscene Productions
+
+## Watchparty
+
+- [Intrinsic Gravity / ^Still](https://demozoo.org/productions/130155/)
+	Geometric, colour play.
+- [State of the Art / ^Spaceballs](https://demozoo.org/productions/2/)
+	- 1992 Amiga. Photosensitivity warning.
+- [Eon / ^The Black Lotus](https://demozoo.org/productions/202831/)
+- [VX2 / ^Spectrals](https://demozoo.org/productions/277304/)
+- [ix / ^Moppi](https://demozoo.org/productions/67521/)
+- [Remnants / ^Alcatraz](https://demozoo.org/productions/342211/)
+	- 256b
+- [GhostNOP / ^Futurs' and ^Pulpo Corrosivo](https://demozoo.org/productions/342223/)
+	- Amstrad CPC
+- [Empires / ^Conspiracy](https://demozoo.org/productions/342435/)
+	- Bokeh / fluid / FOV.
+- [Legend of Sisyphus / ^ASD](https://demozoo.org/productions/327586/)
+	- Mocap. Nudity.
+- [Batman Rises / ^Batman Group](https://demozoo.org/productions/316180/)
+	- Amiga OCS
+- [Mechasm / ^Fairlight](https://demozoo.org/productions/322662/)
+- [In Color / ^Darklite and ^Offence](https://demozoo.org/productions/322396/)
+	- Spectrum 128k
+- [Replay / ^SMFX](https://demozoo.org/productions/325859/)
+	 - Atari ST
+- [The Interloper / ^MFX](https://demozoo.org/productions/322661/)
+- [Masagin / ^Farbrausch and ^Neuro](https://demozoo.org/productions/4910/)
+- [Come Together / ^Melon Dezign](https://demozoo.org/productions/313312/)
 
 ### Further questions / My resources
 

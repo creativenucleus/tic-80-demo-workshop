@@ -1,9 +1,9 @@
 In 2 hours and I'm hoping to hit:
 
+- Check folks have downloaded TIC-80
 - Preamble (outline, expectations, check for photosensitivity requirements)
-- Kick off download and install for those who haven't (tic80.com)
 - What TIC-80 does and why people like it
-- Overview of demoscene
+- Origin and overview of the demoscene
 - TIC-80 Setup (i.e. dev menu option) and orientation (including F1-F5)
 - TIC-80 capabilities (including Pro and web)
 - Hands on: A Primitive House
