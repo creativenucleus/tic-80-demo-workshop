@@ -16,17 +16,30 @@ It may be helpful to first read about the capabilities of TIC-80 (link to come) 
 
 We'll sprinkle some comments in the code to signpost or explain bits of the functionality.
 
-There's an art to knowing when to comment - too many can confuse the code, but there should be enough so that someone new (or yourself in a year's time) can quickly understand what it does or any unusual-looking decisions. 
-
-You can choose to add your own comments, or remove the ones I've written, without affecting how the program runs.
-
 Comments start with two minus signs (`--`). TIC-80 will print them in a different colour (by default: dark grey)
 
 ```lua
--- comments look like this
+-- Comments look like this
+
+-- You might like to run your comments over a few lines if they'd
+-- otherwise run off the width of the screen
 ```
 
+You can choose to add your own comments, or remove the ones I've written, without affecting how the program runs.
+
+There's an art to knowing when to comment - too much commenting can confuse the code, but there should be enough so that someone new (or yourself in a year's time) can quickly understand what it does or any unusual-looking decisions. As a short-hand rule, don't comment any code that explains itself.
+
+## The editor window
+
+xxx Run the default code
+xxx Clear the default code
+xxx Other tools (if you accidentally switch)
+
 ## The minimum viable program
+
+TIC-80 will check whether some specific functions are defined in your code and handle them specially. The only one that's necessary is `TIC`. This must be spelt exactly, and written in capitals.
+
+`'function TIC()...' isn't found :(`
 
 ```lua
 function TIC()
@@ -34,6 +47,8 @@ end
 ```
 
 ## Built in functions and indenting for your sanity
+
+You can use spaces or tabs.
 
 ```lua
 function TIC()
