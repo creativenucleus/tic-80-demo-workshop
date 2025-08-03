@@ -3,6 +3,7 @@
 This a short tutorial to introduce some basics. It is designed to give a nice shape for a workshop (30-90 minutes, depending on capability and how much you'd like to play around) or something to follow for a basic self-start.
 
 It covers:
+- Comments in code.
 - The structure of a program.
 - Running a program.
 - Built-in functions.
@@ -12,9 +13,9 @@ It covers:
 - User-defined functions.
 - Time and basic animation.
 - Modulo (`%`)
-- Sine and Cosine functions.
+- Using the sine function to animate over time.
 
-It may be helpful to first read about [the capabilities of TIC-80](../about-tic-80.md) and how to [install and customise it](../setup-tic-80.md)
+It may be helpful to first read [about TIC-80](../about-tic-80.md) and how to [install and customise it](../setup-tic-80.md)
 
 ## Comments
 
@@ -33,13 +34,37 @@ You can choose to add your own comments, or remove the ones I've written, withou
 
 There's an art to knowing when to comment - too much commenting can confuse the code, but there should be enough so that someone new (or yourself in a year's time) can quickly understand what it does or any unusual-looking decisions. As a short-hand rule, don't comment any code that explains itself.
 
-## The editor window
+## The code editor window
 
-xxx Run the default code
-xxx Clear the default code
-xxx Other tools (if you accidentally switch)
+When you first start TIC-80, you'll get a command line, and a suggestion to type 'help' (and press enter).
+
+Press 'Esc` to switch to the Code Editor.
+
+The Code Editor will contain some starter code, which will include:
+
+```lua
+function TIC()
+```
+
+### Run the default code
+
+To run this code, press CTRL-R (or equivalent on your OS).
+
+[Assuming you have configured Dev Mode](../setup-tic-80.md) you can press `ESC` to stop the program and switch back into the code editor.
+
+You should get used to this flow. You'll be using it a lot! 
+
+### Other editors
+
+TIC-80 includes a few tools; for designing 2D graphics and sound. We won't be using this, but you can switch between them with the F2-F5 keys to take a look. Most importantly, F1 returns you to the code editor if you accidentally switch.
 
 ## Errors and the minimum viable program
+
+### Clear the default code
+
+You should remove the default example code. You can do this by selecting all (CTRL-A or your OS' equivalent) and pressing the `backspace` key
+
+### Errors
 
 TIC-80 will check whether some specific functions are defined in your code and handle them specially. The only one that's necessary is `TIC`. This must be spelt exactly, and written in capitals.
 
@@ -47,25 +72,42 @@ Without this function (or if you've misspelt it), running the program will give 
 
 Try this so that you can become familiar with errors! They look a bit confusing, but most of the time they give clues as to how to investigate and solve them.
 
-The important thing is not to be anxious about errors in TIC-80. They just tell you that something isn't right and that your program had to stop running. They may look angry but they're actually helpful!
+The important thing is not to be anxious about errors in TIC-80. They just tell you that something isn't right and that your program had to stop running. They may look angry but they're actually (supposed to be) helpful!
+
+Trying to run without `TIC()` shows the following error:
 
 `'function TIC()...' isn't found :(`
+
+### Create the TIC function
+
+Update the code in the editor to read:
 
 ```lua
 function TIC()
 end
 ```
 
-## Built in functions and indenting for your sanity
+If you run that program, it will look like nothing is happening, but your code is running - you haven't instructed TIC-80 to clear the screen, so it is still showing whatever was there before - the code in the Code Editor.
 
-It's sometimes a bit unexpected for people, but the way you layout your code is very important, so that you can get visual clues as to how bits of the code are grouped together.
+## Indenting (for your sanity) and Built-in functions
 
-You can use spaces or tabs. (xxx)
+The way you layout your code is very important, so that you can get visual clues as to how bits of the code are grouped together.
 
-For example, code within a function is indented by one space.
-Code within a control structure (an `if` or a `for` - we'll come on to these - is indented by one space)
+Mostly, spacing doesn't matter to the computer in Lua - it's just for you.
 
-Comments should also be indented so that they neatly match the code they reference. You'll develop your own style for this.
+We use newlines to try to keep one useful thing to each row of code, and spaces to line up grouped things in columns.
+
+For the latter - horizontal spacing - You can use spaces or tabs. Tabs in TIC-80 are one space, so you won't see any difference between spaces and tabs, but you might do if you copy the code elsewhere, which is a bit annoying!
+
+Coders develop their own styles and try to match them when working together. I'll suggest my style here, but you're welcome to use your own.
+
+I indent code within a function by one space.
+
+Code within a control structure (an `if` or a `for` - we'll come on to these - is also indented by one space)
+
+Comments should be indented so that they neatly match, by column, the code they reference.
+
+We'll start by clearing the screen, so modify the code to be:
 
 ```lua
 function TIC()
@@ -73,15 +115,51 @@ function TIC()
 end
 ```
 
+When you run that, the code from the code editor should be wiped from the screen. Pressing `ESC` will return you to the editor again. 
+
+`cls` is one of TIC-80's built-in functions. You must provide the brackets, and some functions take arguments. `cls` is a bit unusual in that it takes an optional argument, a colour index. If you don't include a number, it'll default to 0, which is black, but you can try other numbers from 1 to 15 to wipe the whole screen to a single colour, e.g. light blue for sky:
+
 ```lua
 function TIC()
 	cls(11)
 end
 ```
 
-## Drawing something
+## Drawing Shapes
 
-The screen is 240 pixels wide by 136 pixels high. (Pixels = "picture element" - it's a grid of coloured dots that makes the image)
+We'll cover a few built-in functions that allow you to draw on the screen:
+
+- `pix`
+- `rect`
+- `line`
+- `tri`
+- `circ`
+- `rectb`, `trib` and `circb`
+- `print`
+
+We'll start with the smallest...
+
+### pix(x,y, colour)
+
+A pixel is a "picture element", and can be set to one of TIC-80's 16 colours.
+
+The screen is made from a grid of pixels - coloured dots that form the image.
+
+TIC-80's screen is 240 pixels wide by 136 pixels high.
+
+You can set a pixel by calling the `pix` function. This takes three arguments, `x` (the horizontal position of the pixel in the grid, from 0-239), `y` (the vertical position, from 0-135), and a colour index (between 0 and 15).
+
+Try setting a pixel on the screen:
+
+```lua
+function TIC()
+	-- Clear the screen to a sky-coloured background
+	cls(11)
+
+	-- Set a pixel in the centre of the screen to white 
+	pix(120,68, 12)
+end
+```
 
 ## Draw order
 
@@ -95,7 +173,7 @@ The program runs sequentially in the TIC function. Whatever you tell it to do hi
 local T=0
 
 function TIC()
-	-- Clear screen, and sky background
+	-- Clear the screen to a sky-coloured background
 	cls(11)
 
 	-- Some clouds
