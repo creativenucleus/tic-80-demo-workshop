@@ -134,7 +134,7 @@ We'll cover a few built-in functions that allow you to draw on the screen:
 - `line`
 - `tri`
 - `circ`
-- `rectb`, `trib` and `circb`
+- `rectb`, `trib`,`circb`, and `ellib`
 - `print`
 
 We'll start with the smallest...
@@ -222,9 +222,131 @@ You're welcome (actually: encouraged) to tweak the values yourself. Change the p
 
 If you'd like to see the available colours, press `F2` to enter the sprite editor. At the bottom left is the colour palette. You can hover the mouse cursor over each colour to see which colour index you should use. I've chosen `1`  for the roof, which is purple.
 
-## Nested functions
+### line(x1,y1, x2,y2, colour) and for loops
 
-## The full scene
+We're going to add a fence, and to do that we'll need some fenceposts. We'll do that at the bottom of our function (but before the function `end`)
+
+One fencepost might look like this:
+
+```lua
+	-- Fence
+	line(100,90, 100,110, 12)
+```
+
+We'll need about twenty fenceposts, but we can use a loop to save us the trouble of writing code for each one:
+
+```lua
+	-- Fence
+	for xPos=5,240,10 do
+		line(xPos,90, xPos,110, 12)
+	end
+```
+
+A for loop specifies a variable (`xPos`). This variable is modified each time the loop runs. It can take three arguments. These are:
+- A value to start from (`xPos` starts at this value)
+- A value that we finish at if the variable (`xPos`) exceeds it.
+- A value to increse the variable by on each iteration of the loop (this defaults to `1` if it is not supplied)
+
+So the code above will start drawing fenceposts at `xPos`==`5`, incrementing `xPos` by `10`, and finishing when `xPos`>240. 
+
+### if condition
+
+We'll wrap a condition inside this loop. Everytime the loop runs, the condition is tested. If the condition succeeds, then the code inside the condition runs:
+
+```lua
+	-- Fence
+	for xPos=5,240,10 do
+		if xPos<180 or xPos>210 then
+			line(xPos,90, xPos,110, 12)
+		end
+	end
+```
+
+So, the fenceposts will be drawn only when `xPos` < `180` or `xPos` > `210`, leaving a little gap.
+
+We'll fill this gap (and prove that lines don't need to be vertical, by adding a 'gate' after the 'fence' code)
+
+```lua
+	-- Gate
+	line(180,90, 210,110, 13)
+```
+
+### circ(x,y, r, colour), user-defined functions, and nested functions
+
+Time to add the sun, after the 'grass', but before the 'house'
+
+```lua
+	-- The sun
+	circ(200,30, 15, 4)
+```
+
+We can define our own functions to help keep code cleaner - as an example of this, we'll split the sun-drawing off into it's own function.
+
+Below the rest of the code (after the `end` of the `TIC()` function, create your own function like this:
+
+```lua
+function drawSun(x,y)
+	circ(x,y, 15, 4)
+end
+```
+
+and replace your:
+```lua
+	-- The sun
+	circ(200,30, 15, 4)
+```
+
+with:
+```lua
+	-- The sun
+	drawSun(200,30)
+```
+
+The new `drawSun` function receives an `x` and `y` value as `variables` when it is called from `TIC()` and passes their values into `circ`, to draw a circle - this should look like it did before.
+
+We can then fill out that `drawSun` function to do a little more, including calling another of our functions a couple of times: 
+
+```lua
+function drawSun(x,y)
+	circ(x,y, 15,4)
+
+	local eyeY=y-3
+	drawEye(x-6,eyeY)
+	drawEye(x+6,eyeY)
+
+	local mouthH=3+math.sin(T*.2)*2
+	ellib(x,y+8, 8,mouthH, 2)
+end
+
+function drawEye(x,y)
+	circ(x,y, 5,12)
+	circ(x,y, 3,0)
+end
+```
+
+### `trib`, `rectb`, `circb`, `ellib`
+
+Our three shape functions have unfilled / border-only equivalents. They take the same number of arguments as their filled counterparts.
+
+We'll add a row of trees above 'house' so that they appear behind it:
+
+```lua
+	-- Trees
+	for x=10,240,20 do
+		trib(x,65, x-5,85, x+5,85, 5)
+	end
+```
+
+### print(string, x,y, colour) and Sign your masterpiece!
+
+Place this at the end of your `TIC()` function, replacing "JTRUK" with your own name, and adjusting the `210` so that your name fits nicely on the screen:
+
+```lua
+	-- Sign it!
+	print("JTRUK", 210,129, 12)
+```
+
+## The Full Scene
 
 ```lua
 local T=0
@@ -249,8 +371,8 @@ function TIC()
 	rect(0,80, 240,60, 6)
 
 	-- Trees
-	for x=10,240,20 do
-		trib(x,65, x-5,85, x+5,85, 5)
+	for xPos=10,240,20 do
+		trib(xPos,65, xPos-5,85, x+5,85, 5)
 	end
 
 	-- House
@@ -260,14 +382,14 @@ function TIC()
 	tri(100,20, 40,50, 160,50, 1)
 
 	-- Fence
-	for x=5,240,10 do
-		if x<180 or x>210 then
-			line(x,90, x,110, 12)
+	for xPos=5,240,10 do
+		if xPos<180 or xPos>210 then
+			line(xPos,90, xPos,110, 12)
 		end
 	end
 
 	-- Gate
-	line(180,90, 210,110, 12)
+	line(180,90, 210,110, 13)
 	
 	-- Sign it!
 	print("JTRUK", 210,129, 12)
