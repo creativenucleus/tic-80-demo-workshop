@@ -115,7 +115,7 @@ function TIC()
 
 	-- Trees
 	for x=10,240,20 do
-	 trib(x,65,x-5,85,x+5,85,5)
+		trib(x,65,x-5,85,x+5,85,5)
 	end
 
 	-- House
