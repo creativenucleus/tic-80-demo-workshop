@@ -79,9 +79,17 @@ function TIC()
 end
 ```
 
--- 240x136
+## Drawing something
+
+The screen is 240 pixels wide by 136 pixels high. (Pixels = "picture element" - it's a grid of coloured dots that makes the image)
+
+## Draw order
+
+The program runs sequentially in the TIC function. Whatever you tell it to do higher up will be done first - You can define functions wherever you like, but they won't be executed until you call them. 
 
 ## Nested functions
+
+## The full scene
 
 ```lua
 local T=0
@@ -90,12 +98,14 @@ function TIC()
 	-- Clear screen, and sky background
 	cls(11)
 
+	-- Some clouds
 	for i=1,4 do
 		local x=(-T*.6+i*60)%240
 		local y=20+i*5 
 		drawCloud(x,y)
 	end
 	
+	-- A chatty sun
 	local x=T%240
 	local y=30+math.sin(T*.1)*10
 	drawSun(x,y) 
@@ -103,7 +113,7 @@ function TIC()
 	-- Ground
 	rect(0,80,240,60,14)
 
-	-- trees
+	-- Trees
 	for x=10,240,20 do
 	 trib(x,65,x-5,85,x+5,85,5)
 	end
@@ -124,7 +134,30 @@ function TIC()
 	-- Gate
 	line(180,90,210,110,12)
 	
+	-- Sign it!
+	print("JTRUK",210,129,12)
+	
 	T=T+1
+end
+
+function drawSun(x,y)
+	circ(x,y,15,4)
+
+	local eyeY=y-3
+	drawEye(x-6,eyeY)
+	drawEye(x+6,eyeY)
+
+	local mouthH=3+math.sin(T*.2)*2
+	ellib(x,y+8,8,mouthH,2)
+end
+
+function drawEye(x,y)
+	circ(x,y,5,12)
+	circ(x,y,3,0)
+end
+
+function drawCloud(x,y)
+	elli(x,y,20,8,12)
 end
 ```
 
