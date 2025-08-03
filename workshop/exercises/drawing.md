@@ -161,9 +161,66 @@ function TIC()
 end
 ```
 
-## Draw order
+### rect(x,y, w,h, colour) and draw order
 
-The program runs sequentially in the TIC function. Whatever you tell it to do higher up will be done first - You can define functions wherever you like, but they won't be executed until you call them. 
+This function will draw a rectangle. Swap the pix() call out for a rect() call.
+
+Make sure you supply all the required arguments in brackets, or you may get an error.
+
+Also note that you're supplying a width and height, rather than a second x,y coordinate to draw to.
+
+Ensure you pay attention to the order of the arguments!
+
+```lua
+function TIC()
+	-- Clear the screen to a sky-coloured background
+	cls(11)
+
+	-- Grass
+	rect(0,80, 240,60, 6)
+end
+```
+
+We'll draw another rectangle. Try putting this above the grass in your code:
+
+```lua
+	-- House
+	rect(50,50, 100,50, 13)
+```
+
+That's not quite as we'd like it. The house is sitting directly on the horizon rather than the grass. Now move that 'house' rectangle below the grass rectangle. The code should now look like:
+
+```lua
+function TIC()
+	-- Clear the screen to a sky-coloured background
+	cls(11)
+
+	-- Grass
+	rect(0,80, 240,60, 6)
+
+	-- House
+	rect(50,50, 100,50, 13)
+end
+```
+
+The program runs sequentially through the TIC function. Whatever you tell it to do higher up will be done first - You can define functions wherever you like, but they won't be executed until you call them, so we need to call the draw functions in the intended order.
+
+### tri(x1,y1, x2,y2, x3,y3, colour) and the default colour palette
+
+We'll continue to build the scene, so add the following after your 'house' rectangle, but before the `end` of the function:
+
+```lua
+	-- Roof
+	tri(100,20, 40,50, 160,50, 1)
+```
+
+`tri` draws a triangle, taking three positions on screen (one for each corner) and a colour index.
+
+The first coordinate here is the top centre point of the triangle, and the next two are the bottom of the triangle, left and right.
+
+You're welcome (actually: encouraged) to tweak the values yourself. Change the positions a little bit, or choose a different colour index.
+
+If you'd like to see the available colours, press `F2` to enter the sprite editor. At the bottom left is the colour palette. You can hover the mouse cursor over each colour to see which colour index you should use. I've chosen `1`  for the roof, which is purple.
 
 ## Nested functions
 
@@ -179,63 +236,63 @@ function TIC()
 	-- Some clouds
 	for i=1,4 do
 		local x=(-T*.6+i*60)%240
-		local y=20+i*5 
+		local y=20+i*5
 		drawCloud(x,y)
 	end
 	
 	-- A chatty sun
 	local x=T%240
 	local y=30+math.sin(T*.1)*10
-	drawSun(x,y) 
+	drawSun(x,y)
 
-	-- Ground
-	rect(0,80,240,60,14)
+	-- Grass
+	rect(0,80, 240,60, 6)
 
 	-- Trees
 	for x=10,240,20 do
-		trib(x,65,x-5,85,x+5,85,5)
+		trib(x,65, x-5,85, x+5,85, 5)
 	end
 
 	-- House
-	rect(50,50,100,50,13)
+	rect(50,50, 100,50, 13)
 
 	-- Roof
-	tri(40,50,160,50,100,20,1)
+	tri(100,20, 40,50, 160,50, 1)
 
 	-- Fence
 	for x=5,240,10 do
 		if x<180 or x>210 then
-			line(x,90,x,110,12)
+			line(x,90, x,110, 12)
 		end
 	end
 
 	-- Gate
-	line(180,90,210,110,12)
+	line(180,90, 210,110, 12)
 	
 	-- Sign it!
-	print("JTRUK",210,129,12)
+	print("JTRUK", 210,129, 12)
 	
 	T=T+1
 end
 
 function drawSun(x,y)
-	circ(x,y,15,4)
+	circ(x,y, 15,4)
 
 	local eyeY=y-3
 	drawEye(x-6,eyeY)
 	drawEye(x+6,eyeY)
 
 	local mouthH=3+math.sin(T*.2)*2
-	ellib(x,y+8,8,mouthH,2)
+	ellib(x,y+8, 8,mouthH, 2)
 end
 
 function drawEye(x,y)
-	circ(x,y,5,12)
-	circ(x,y,3,0)
+	circ(x,y, 5,12)
+	circ(x,y, 3,0)
 end
 
 function drawCloud(x,y)
-	elli(x,y,20,8,12)
+	elli(x,y, 20,8, 12)
 end
 ```
 
