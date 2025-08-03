@@ -324,6 +324,10 @@ function drawEye(x,y)
 end
 ```
 
+### Draw some clouds
+
+(...)
+
 ### `trib`, `rectb`, `circb`, `ellib`
 
 Our three shape functions have unfilled / border-only equivalents. They take the same number of arguments as their filled counterparts.
