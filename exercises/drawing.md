@@ -90,12 +90,23 @@ function TIC()
 	-- Clear screen, and sky background
 	cls(11)
 
-	local x=T
+	for i=1,4 do
+		local x=(-T*.6+i*60)%240
+		local y=20+i*5 
+		drawCloud(x,y)
+	end
+	
+	local x=T%240
 	local y=30+math.sin(T*.1)*10
-	drawSun(T%240,y) 
+	drawSun(x,y) 
 
 	-- Ground
 	rect(0,80,240,60,14)
+
+	-- trees
+	for x=10,240,20 do
+	 trib(x,65,x-5,85,x+5,85,5)
+	end
 
 	-- House
 	rect(50,50,100,50,13)
@@ -115,23 +126,14 @@ function TIC()
 	
 	T=T+1
 end
-
-function drawSun(x,y)
-	circ(x,y,15,4)
-
-	local eyeY=y-3
-	drawEye(x-6,eyeY)
-	drawEye(x+6,eyeY)
-
-	ellib(x,y+8,8,3,2)
-end
-
-function drawEye(x,y)
-	circ(x,y,5,12)
-	circ(x,y,3,0)
-end
 ```
 
+![An animation of the house scene](drawing/house-scene.gif)
+
 ## Loading and saving
+
+folder
+
+gif
 
 xxx
