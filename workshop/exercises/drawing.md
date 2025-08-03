@@ -14,7 +14,7 @@ It covers:
 - Modulo (`%`)
 - Sine and Cosine functions.
 
-It may be helpful to first read about the capabilities of TIC-80 (link to come) and how to install and customise (link to come).
+It may be helpful to first read about [the capabilities of TIC-80](../about-tic-80.md) and how to [install and customise it](../setup-tic-80.md)
 
 ## Comments
 
