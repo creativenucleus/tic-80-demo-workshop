@@ -56,7 +56,14 @@ You should get used to this flow. You'll be using it a lot!
 
 ### Other editors
 
-TIC-80 includes a few tools; for designing 2D graphics and sound. We won't be using this, but you can switch between them with the F2-F5 keys to take a look. Most importantly, F1 returns you to the code editor if you accidentally switch.
+TIC-80 includes a few tools; for designing 2D graphics and sound. We won't be using these in this exercise, but you can switch between them with the `F2`-`F5` keys to take a look:
+
+- `F2` - Sprite editor
+- `F3` - Map editor
+- `F4` - Sound editor
+- `F5` - Music editor
+
+Most importantly, `F1` returns you back to the code editor if you accidentally switch.
 
 ## Errors and the minimum viable program
 
@@ -77,6 +84,8 @@ The important thing is not to be anxious about errors in TIC-80. They just tell 
 Trying to run without `TIC()` shows the following error:
 
 `'function TIC()...' isn't found :(`
+
+Often the error will include a line number to help your investigation.
 
 ### Create the TIC function
 
@@ -163,7 +172,7 @@ end
 
 ### rect(x,y, w,h, colour) and draw order
 
-This function will draw a rectangle. Swap the pix() call out for a rect() call.
+This function will draw a rectangle. Remove the `pix()` call, to swap it for a `rect()` call.
 
 Make sure you supply all the required arguments in brackets, or you may get an error.
 
@@ -204,6 +213,12 @@ end
 ```
 
 The program runs sequentially through the TIC function. Whatever you tell it to do higher up will be done first - You can define functions wherever you like, but they won't be executed until you call them, so we need to call the draw functions in the intended order.
+
+### Variables
+
+As we've seen, the position of the house is relative to the position of the horizon, so it might be good to tie these placements together - so if we want to change where they both are, we can do that in one place.
+
+We can do this using a `variable`. Variables are ... that hold values
 
 ### tri(x1,y1, x2,y2, x3,y3, colour) and the default colour palette
 
@@ -353,7 +368,8 @@ Place this at the end of your `TIC()` function, replacing "JTRUK" with your own 
 ## The Full Scene
 
 ```lua
-local T=0
+T=0 -- Time
+HOR_Y=80 -- The y-position of the horizon
 
 function TIC()
 	-- Clear the screen to a sky-coloured background
@@ -361,39 +377,46 @@ function TIC()
 
 	-- Some clouds
 	for i=1,4 do
-		local x=(-T*.6+i*60)%240
-		local y=20+i*5
-		drawCloud(x,y)
+		local cloudX=(-T/3 + i*60)%240
+		local cloudY=HOR_Y-50 + i*5
+		drawCloud(cloudX,cloudY)
 	end
 	
 	-- A chatty sun
-	local x=T%240
-	local y=30+math.sin(T*.1)*10
-	drawSun(x,y)
+	local sunX=T%240
+	local sunY=HOR_Y - 45 + math.sin(T/10)*15
+	drawSun(sunX,sunY)
 
 	-- Grass
-	rect(0,80, 240,60, 6)
+	rect(0,HOR_Y, 240,136-HOR_Y, 6)
 
 	-- Trees
-	for xPos=10,240,20 do
-		trib(xPos,65, xPos-5,85, x+5,85, 5)
+	local treeY=HOR_Y+5
+	local treeH=20
+	for treeX=10,240,20 do
+	 drawTree(treeX,treeY, treeH)
 	end
 
 	-- House
-	rect(50,50, 100,50, 13)
+	local houseY=HOR_Y-30
+	rect(50,houseY, 100,50, 13)
 
 	-- Roof
-	tri(100,20, 40,50, 160,50, 1)
+	tri(100,houseY-30, 40,houseY, 160,houseY, 1)
 
 	-- Fence
-	for xPos=5,240,10 do
-		if xPos<180 or xPos>210 then
-			line(xPos,90, xPos,110, 12)
+	local fenceY1=HOR_Y+10
+	local fenceY2=fenceY1+20
+	local gateX1=160
+	local gateX2=gateX1+30
+	for fenceX=5,240,10 do
+		if fenceX<gateX1 or fenceX>gateX2 then
+			line(fenceX,fenceY1, fenceX,fenceY2, 12)
 		end
 	end
 
 	-- Gate
-	line(180,90, 210,110, 13)
+	line(gateX1,fenceY1, gateX2,fenceY2, 13)
 	
 	-- Sign it!
 	print("JTRUK", 210,129, 12)
@@ -402,23 +425,27 @@ function TIC()
 end
 
 function drawSun(x,y)
-	circ(x,y, 15,4)
+	circ(x,y, 15, 4)
 
 	local eyeY=y-3
 	drawEye(x-6,eyeY)
 	drawEye(x+6,eyeY)
 
-	local mouthH=3+math.sin(T*.2)*2
+	local mouthH=3 + math.sin(T/5)*2
 	ellib(x,y+8, 8,mouthH, 2)
 end
 
 function drawEye(x,y)
-	circ(x,y, 5,12)
-	circ(x,y, 3,0)
+	circ(x,y, 5, 12)
+	circ(x,y, 3, 0)
 end
 
 function drawCloud(x,y)
 	elli(x,y, 20,8, 12)
+end
+
+function drawTree(xPos, treeY, treeH)
+	trib(xPos,treeY-treeH, xPos-5,treeY, xPos+5,treeY, 5)
 end
 ```
 
