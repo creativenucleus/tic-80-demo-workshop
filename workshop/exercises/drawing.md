@@ -1,6 +1,8 @@
 # Drawing in TIC-80, using the Lua language
 
-This a short tutorial to introduce some basics. It is designed to give a nice shape for a workshop (30-90 minutes, depending on capability and how much you'd like to play around) or something to follow for a basic self-start.
+This a short tutorial to introduce some basics. It is designed to give a nice shape for a workshop or something to follow for a basic self-start.
+
+I'd anticipate it taking 45-90 minutes, depending on the participants' capabilities and how much you'd like to play around.
 
 It covers:
 - Comments in code.
@@ -13,7 +15,8 @@ It covers:
 - User-defined functions.
 - Time and basic animation.
 - Modulo (`%`)
-- Using the sine function to animate over time.
+- Animation over time.
+- The sine function (introducing the math library)
 
 It may be helpful to first read [about TIC-80](../about-tic-80.md) and how to [install and customise it](../setup-tic-80.md)
 
@@ -48,9 +51,9 @@ function TIC()
 
 ### Run the default code
 
-To run this code, press CTRL-R (or equivalent on your OS).
+To run this code, press `CTRL-R` (or equivalent on your OS).
 
-[Assuming you have configured Dev Mode](../setup-tic-80.md) you can press `ESC` to stop the program and switch back into the code editor.
+[Assuming you have configured Dev Mode](../setup-tic-80.md#switch-dev-mode-on) you can press `ESC` to stop the program and switch back into the code editor.
 
 You should get used to this flow. You'll be using it a lot! 
 
@@ -63,13 +66,13 @@ TIC-80 includes a few tools; for designing 2D graphics and sound. We won't be us
 - `F4` - Sound editor
 - `F5` - Music editor
 
-Most importantly, `F1` returns you back to the code editor if you accidentally switch.
+Most importantly for now, `F1` returns you back to the code editor if you accidentally switch.
 
 ## Errors and the minimum viable program
 
 ### Clear the default code
 
-You should remove the default example code. You can do this by selecting all (CTRL-A or your OS' equivalent) and pressing the `backspace` key
+You should remove the default example code. You can do this by selecting all (`CTRL-A` or your OS' equivalent) and pressing the `backspace` key
 
 ### Errors
 
@@ -218,7 +221,37 @@ The program runs sequentially through the TIC function. Whatever you tell it to 
 
 As we've seen, the position of the house is relative to the position of the horizon, so it might be good to tie these placements together - so if we want to change where they both are, we can do that in one place.
 
-We can do this using a `variable`. Variables are ... that hold values
+We can do this using a `variable`. A variable is a place in computer memory that holds a value. The variable will be referenced by using its name, and the value can be read and written to. It may change over the course of the program or it may stay the same. Depending where it is first declared, it may be available to the whole program, or only a part of it.
+
+In some languages, there's the concept of a `constant`, which is like a variable but the value can't ever change after it's set. That'd be ideal for storing our horizon position but Lua doesn't have constants, so we'll use a variable instead for this.
+
+xxx Variable naming
+
+xxx Global scope
+
+xxx Replace values
+
+```lua
+HOR_Y=80
+
+function TIC()
+	-- Clear the screen to a sky-coloured background
+	cls(11)
+
+	-- Grass
+	rect(0,HOR_Y, 240,60, 6)
+
+	-- House
+	rect(50,HOR_Y, 100,50, 13)
+end
+```
+
+xxx Use variables as if they were numbers
+
+```lua
+	-- Grass
+	rect(0,HOR_Y, 240,136-HOR_Y, 6)
+```
 
 ### tri(x1,y1, x2,y2, x3,y3, colour) and the default colour palette
 
