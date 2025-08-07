@@ -1,8 +1,8 @@
 # Drawing in TIC-80, using the Lua language
 
-This a short tutorial to introduce some basics. It is designed to give a nice shape for a workshop or something to follow for a basic self-start.
+This a short tutorial to introduce some basics. It is designed to give a nice shape for a workshop or something to follow for a self-start on the basics.
 
-I'd anticipate it taking 45-90 minutes, depending on the participants' capabilities and how much you'd like to play around.
+I'd anticipate it taking 45-90 minutes, depending on the participants' capabilities. If the materials have been absorbed, that'll offer plenty of opportunity to play around.
 
 It covers:
 - Comments in code.
@@ -35,7 +35,7 @@ Comments start with two minus signs (`--`). TIC-80 will print them in a differen
 
 You can choose to add your own comments, or remove the ones I've written, without affecting how the program runs.
 
-There's an art to knowing when to comment - too much commenting can confuse the code, but there should be enough so that someone new (or yourself in a year's time) can quickly understand what it does or any unusual-looking decisions. As a short-hand rule, don't comment any code that explains itself.
+There's an art to knowing when to comment - too much commenting can confuse the code, but there should be enough so that someone new (and yourself in a year's time) can quickly understand what it does or any unusual-looking decisions. As a short-hand rule, don't comment any code that explains itself.
 
 ## The code editor window
 
@@ -47,6 +47,8 @@ The Code Editor will contain some starter code, which will include:
 
 ```lua
 function TIC()
+	... some code ...
+end
 ```
 
 ### Run the default code
@@ -72,23 +74,29 @@ Most importantly for now, `F1` returns you back to the code editor if you accide
 
 ### Clear the default code
 
-You should remove the default example code. You can do this by selecting all (`CTRL-A` or your OS' equivalent) and pressing the `backspace` key
+You should remove the default example code. You can do this by selecting all of it (`CTRL-A` or your OS' equivalent) and pressing the `backspace` key
 
 ### Errors
 
-TIC-80 will check whether some specific functions are defined in your code and handle them specially. The only one that's necessary is `TIC`. This must be spelt exactly, and written in capitals.
+TIC-80 will check whether some specific functions are defined in your code and handle them specially. The only one that's necessary is `TIC`. This must be spelt exactly, written in capitals, have an `end` and be laid out something like:
+
+```lua
+function TIC()
+	-- some code
+end
+```
 
 Without this function (or if you've misspelt it), running the program will give you a little unhappy error.
 
-Try this so that you can become familiar with errors! They look a bit confusing, but most of the time they give clues as to how to investigate and solve them.
+Try this so that you can become familiar with errors! They may look confusing - there's usually a few bits of information in there - but most of the time they give clues as to how to investigate and solve them.
 
-The important thing is not to be anxious about errors in TIC-80. They just tell you that something isn't right and that your program had to stop running. They may look angry but they're actually (supposed to be) helpful!
+The important thing is not to be anxious about errors in TIC-80. They just tell you that something isn't right and that your program had to stop running. No damage will have been done. They may look angry but they're actually (supposed to be) helpful - fixing the error will get you running again.
 
-Trying to run without `TIC()` shows the following error:
+Trying to run the code without `TIC()` shows the following error:
 
 `'function TIC()...' isn't found :(`
 
-Often the error will include a line number to help your investigation.
+Sometimes the error will include a line number to help your investigation.
 
 ### Create the TIC function
 
@@ -99,23 +107,28 @@ function TIC()
 end
 ```
 
-If you run that program, it will look like nothing is happening, but your code is running - you haven't instructed TIC-80 to clear the screen, so it is still showing whatever was there before - the code in the Code Editor.
+If you run that program, it will look like nothing is happening, but your code is running - you haven't instructed TIC-80 to do anything, including clearing the screen, so it is still showing whatever was there before - which is the code in the Code Editor. But as the program is running, you can't edit the code.
+
+You can press the `ESC` key to stop the program, which drops you back into edit mode.
 
 ## Indenting (for your sanity) and Built-in functions
 
-The way you layout your code is very important, so that you can get visual clues as to how bits of the code are grouped together.
+The way you lay your code out visually is very important, so that you can get clues as to how bits of it are grouped together.
 
-Mostly, spacing doesn't matter to the computer in Lua - it's just for you.
+Mostly (but with some exceptions) spacing doesn't matter to the computer in Lua - it's just for you.
 
 We use newlines to try to keep one useful thing to each row of code, and spaces to line up grouped things in columns.
 
-For the latter - horizontal spacing - You can use spaces or tabs. Tabs in TIC-80 are one space, so you won't see any difference between spaces and tabs, but you might do if you copy the code elsewhere, which is a bit annoying!
+For the latter - horizontal spacing - You can use spaces or tabs. Tabs in TIC-80 take one space, so you won't see any difference between spaces and tabs... but you might do if you copy the code elsewhere, which is a bit annoying!
 
-Coders develop their own styles and try to match them when working together. I'll suggest my style here, but you're welcome to use your own.
+Coders develop their own styles and try to match them when working together. I've developed my style over many years and I'll suggest it for you here, but you're welcome to use your own. The important thing is for the code to look clean and is well ordered to work with.
 
-I indent code within a function by one space.
+We'll introduce functions and control structures shortly, but my style is:
 
-Code within a control structure (an `if` or a `for` - we'll come on to these - is also indented by one space)
+- Code within a function is indented by one space.
+- Code within a control structure (an `if` or a `for` - we'll come on to these - is also indented by one space)
+
+These indentations add up, so a control structure within a function will be indented by two spaces.
 
 Comments should be indented so that they neatly match, by column, the code they reference.
 
@@ -123,6 +136,7 @@ We'll start by clearing the screen, so modify the code to be:
 
 ```lua
 function TIC()
+	-- Clear the screen
 	cls()
 end
 ```
@@ -133,6 +147,7 @@ When you run that, the code from the code editor should be wiped from the screen
 
 ```lua
 function TIC()
+	-- Clear the screen to a sky-coloured background
 	cls(11)
 end
 ```
@@ -159,13 +174,13 @@ The screen is made from a grid of pixels - coloured dots that form the image.
 
 TIC-80's screen is 240 pixels wide by 136 pixels high.
 
-You can set a pixel by calling the `pix` function. This takes three arguments, `x` (the horizontal position of the pixel in the grid, from 0-239), `y` (the vertical position, from 0-135), and a colour index (between 0 and 15).
+You can set a pixel by calling the `pix` function. This takes three values, known as 'arguments', `x` (the horizontal position of the pixel in the grid, from 0-239), `y` (the vertical position, from 0-135), and a colour index (between 0 and 15).
 
-Try setting a pixel on the screen:
+Try setting a pixel in the middle of the screen (position x=120, y=68, colour=12):
 
 ```lua
 function TIC()
-	-- Clear the screen to a sky-coloured background
+	-- Clear the screen to sky blue
 	cls(11)
 
 	-- Set a pixel in the centre of the screen to white 
@@ -185,11 +200,11 @@ Ensure you pay attention to the order of the arguments!
 
 ```lua
 function TIC()
-	-- Clear the screen to a sky-coloured background
+	-- Clear the screen to sky blue
 	cls(11)
 
 	-- Grass
-	rect(0,80, 240,60, 6)
+	rect(0,80, 240,136-80, 6)
 end
 ```
 
@@ -204,18 +219,18 @@ That's not quite as we'd like it. The house is sitting directly on the horizon r
 
 ```lua
 function TIC()
-	-- Clear the screen to a sky-coloured background
+	-- Clear the screen to sky blue
 	cls(11)
 
 	-- Grass
-	rect(0,80, 240,60, 6)
+	rect(0,80, 240,136-80, 6)
 
 	-- House
 	rect(50,50, 100,50, 13)
 end
 ```
 
-The program runs sequentially through the TIC function. Whatever you tell it to do higher up will be done first - You can define functions wherever you like, but they won't be executed until you call them, so we need to call the draw functions in the intended order.
+The program runs sequentially through the TIC function. Whatever you tell it to do earlier on in the function will be done first - so we need to call the draw functions in the intended order - first the cls, then the grass, then the house.
 
 ### Variables
 
@@ -235,14 +250,14 @@ xxx Replace values
 HOR_Y=80
 
 function TIC()
-	-- Clear the screen to a sky-coloured background
+	-- Clear the screen to sky blue
 	cls(11)
 
 	-- Grass
-	rect(0,HOR_Y, 240,60, 6)
+	rect(0,80, 240,136-80, 6)
 
 	-- House
-	rect(50,HOR_Y, 100,50, 13)
+	rect(50,80, 100,50, 13)
 end
 ```
 
@@ -250,7 +265,7 @@ xxx Use variables as if they were numbers
 
 ```lua
 	-- Grass
-	rect(0,HOR_Y, 240,136-HOR_Y, 6)
+	rect(0,80, 240,136-80, 6)
 ```
 
 ### tri(x1,y1, x2,y2, x3,y3, colour) and the default colour palette
@@ -330,6 +345,8 @@ Time to add the sun, after the 'grass', but before the 'house'
 
 We can define our own functions to help keep code cleaner - as an example of this, we'll split the sun-drawing off into it's own function.
 
+You can define functions wherever you like, but they won't be executed until you call them.
+
 Below the rest of the code (after the `end` of the `TIC()` function, create your own function like this:
 
 ```lua
@@ -402,44 +419,42 @@ Place this at the end of your `TIC()` function, replacing "JTRUK" with your own 
 
 ```lua
 T=0 -- Time
-HOR_Y=80 -- The y-position of the horizon
 
 function TIC()
-	-- Clear the screen to a sky-coloured background
+	-- Clear the screen to sky blue
 	cls(11)
 
 	-- Some clouds
 	for i=1,4 do
 		local cloudX=(-T/3 + i*60)%240
-		local cloudY=HOR_Y-50 + i*5
-		drawCloud(cloudX,cloudY)
+		local cloudY=30 + i*5
+		elli(cloudX,cloudY, 20,8, 12)
 	end
 	
 	-- A chatty sun
 	local sunX=T%240
-	local sunY=HOR_Y - 45 + math.sin(T/10)*15
+	local sunY=5 + math.sin(T/10)*15
 	drawSun(sunX,sunY)
 
 	-- Grass
-	rect(0,HOR_Y, 240,136-HOR_Y, 6)
+	rect(0,80, 240,136-80, 6)
 
 	-- Trees
-	local treeY=HOR_Y+5
+	local treeY=85
 	local treeH=20
 	for treeX=10,240,20 do
-	 drawTree(treeX,treeY, treeH)
+		drawTree(treeX,treeY, treeH)
 	end
 
 	-- House
-	local houseY=HOR_Y-30
-	rect(50,houseY, 100,50, 13)
+	rect(50,50, 100,50, 13)
 
 	-- Roof
-	tri(100,houseY-30, 40,houseY, 160,houseY, 1)
+	tri(100,20, 40,50, 160,50, 1)
 
 	-- Fence
-	local fenceY1=HOR_Y+10
-	local fenceY2=fenceY1+20
+	local fenceY1=90
+	local fenceY2=110
 	local gateX1=160
 	local gateX2=gateX1+30
 	for fenceX=5,240,10 do
@@ -473,10 +488,6 @@ function drawEye(x,y)
 	circ(x,y, 3, 0)
 end
 
-function drawCloud(x,y)
-	elli(x,y, 20,8, 12)
-end
-
 function drawTree(xPos, treeY, treeH)
 	trib(xPos,treeY-treeH, xPos-5,treeY, xPos+5,treeY, 5)
 end
@@ -486,8 +497,10 @@ end
 
 ## Loading and saving
 
-folder
+xxx folder
 
-gif
+xxx load / save
 
-xxx
+xxx screenshot
+
+xxx GIF animation
