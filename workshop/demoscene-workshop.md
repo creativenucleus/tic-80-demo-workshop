@@ -31,3 +31,18 @@ In 2 hours and I'm hoping to hit:
     - Field-FX Discord
     - tcc.lovebyte.party
 - Longer form
+
+## Alternative Framing
+
+Creative Coding Workshop (45 minutes)
+
+Suitable for all levels - for those who haven't done much/any coding at all, but also for experienced coders who would like an accessible way to make static or animated retro-style visuals.
+
+We'll introduce some basic code concepts as we explore the graphics capabilities of an artistic coding environment. Beginners will learn some practical structures, and the more advanced will have guidance to push things further.
+
+If there's a mixed-ability group, we'll pick a pace that allows us to introduce both of these aspects at the same time with each other.
+
+You'll leave with (1) an understanding of the fundamentals of coding (2) some experience of a tool for creative expression (3) starting points for continuing on your own. The workshop has previously run at EMFCamp, Peckham Digital, and Newcastle's Creative Code Club.
+
+We'll use a 'fantasy computer' called 'TIC-80'. You'll need a laptop (Windows, Mac, or Linux).
+I recommend pre-installing TIC-80, but you can also use the browser-based version (both available on this webpage: https://tic80.com/create)

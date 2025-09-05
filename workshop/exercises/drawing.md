@@ -208,6 +208,8 @@ function TIC()
 end
 ```
 
+Note that the 4th argument (height) has been set to a calculation (`136-80`), because we'd like to just draw the bits that we need to - 136 is the height of the screen and 80 is the vertical position (`y`) that our rectangle starts from, so the difference is the height of the bottom section of the screen that needs to be filled. `136-80` is evaluated. This calculated result (`56`) is then sent into the function.
+
 We'll draw another rectangle. Try putting this above the grass in your code:
 
 ```lua
@@ -230,7 +232,7 @@ function TIC()
 end
 ```
 
-The program runs sequentially through the TIC function. Whatever you tell it to do earlier on in the function will be done first - so we need to call the draw functions in the intended order - first the cls, then the grass, then the house.
+The program runs sequentially through the TIC function. Whatever you tell it to do earlier on in the function will be done first - so we need to call the draw functions in the intended order, because they paint over each other - first the `cls`, then the grass, then the house.
 
 ### Variables
 
@@ -247,8 +249,6 @@ xxx Global scope
 xxx Replace values
 
 ```lua
-HOR_Y=80
-
 function TIC()
 	-- Clear the screen to sky blue
 	cls(11)
@@ -497,10 +497,18 @@ end
 
 ## Loading and saving
 
-xxx folder
+TIC-80 saves user data in a particular place on your computer.
 
-xxx load / save
+(current working folder)
 
-xxx screenshot
+From the CLI, you can type and enter:
 
-xxx GIF animation
+- `folder` to open the current working folder in your Desktop environment.
+- `mkdir xyz` to create the folder `xyz` in the current working folder.
+- `cd xyz` to enter the folder `xyz` if it exists within the current working folder.
+- `save abc` to save your program in the current working folder as `abc.tic`.
+- `load abc` to load `abc.tic` if it exists in the current working folder.
+
+If you would like to take a screenshot, press `F8`. This will be saved in the current working folder.
+
+You can make a GIF video recording. Start the recording by pressing `F9` and stop the recording by pressing `F9` again. The GIF will be saved into the current working folder.
